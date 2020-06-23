@@ -1,4 +1,4 @@
-import 'file:///E:/WorkSpace/Flutter/cc_github_client_flutter/lib/page/home/home_page.dart';
+import 'package:ccgithubclientflutter/page/home/home_page.dart';
 import 'package:ccgithubclientflutter/page/login/login_page.dart';
 import 'package:flutter/material.dart';
 

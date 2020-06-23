@@ -1,9 +1,8 @@
 import 'dart:async';
 
 import 'package:ccgithubclientflutter/generated/l10n.dart';
+import 'package:ccgithubclientflutter/page/home/home_page.dart';
 import 'package:ccgithubclientflutter/pl/model/result_data.dart';
-import 'package:ccgithubclientflutter/i10n/localizations.dart';
-import 'file:///E:/WorkSpace/Flutter/cc_github_client_flutter/lib/page/home/home_page.dart';
 import 'package:ccgithubclientflutter/page/login/login_page.dart';
 import 'package:ccgithubclientflutter/page/welcome_page.dart';
 import 'package:flutter/material.dart';
@@ -100,7 +99,7 @@ mixin HttpErrorListener on State<MyApp> {
 
   ///网络错误提醒
   errorHandleFunction(int code, message) {
-    final location = AppLocalizations.of(_context);
+    final location = S.of(_context);
     switch (code) {
       case ResultCode.GITHUB_API_REFUSED:
         showToast(location.networkError);

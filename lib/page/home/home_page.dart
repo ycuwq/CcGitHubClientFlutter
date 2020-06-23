@@ -1,4 +1,4 @@
-import 'package:ccgithubclientflutter/i10n/localizations.dart';
+import 'package:ccgithubclientflutter/generated/l10n.dart';
 import 'package:ccgithubclientflutter/page/home/feeds/feeds_page.dart';
 import 'package:ccgithubclientflutter/page/home/my/my_page.dart';
 import 'package:ccgithubclientflutter/page/home/treed/treed_page.dart';
@@ -25,7 +25,7 @@ class HomeState extends State<HomePage> {
   ];
   List<Widget> titleList;
 
-  List<Widget> getTitleList(AppLocalizations localizations) {
+  List<Widget> getTitleList(S localizations) {
 
     if (titleList == null) {
       titleList = [
@@ -46,7 +46,7 @@ class HomeState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final appLocalizations = AppLocalizations.of(context);
+    final appLocalizations = S.of(context);
     return Scaffold(
       appBar: new AppBar(
         title: getTitleList(appLocalizations)[_currentPageIndex],

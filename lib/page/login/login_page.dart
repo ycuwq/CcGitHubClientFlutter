@@ -1,9 +1,9 @@
 import 'dart:async';
 
+import 'package:ccgithubclientflutter/generated/l10n.dart';
 import 'package:ccgithubclientflutter/pl/repository/user_repository.dart';
 import 'package:ccgithubclientflutter/pl/service/address.dart';
 import 'package:ccgithubclientflutter/common/navigate/nacigator_utils.dart';
-import 'package:ccgithubclientflutter/i10n/localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:uni_links/uni_links.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -64,7 +64,7 @@ class LoginState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     var url = Address.getOAuthUrl();
-    var appLocation = AppLocalizations.of(context);
+    var appLocation = S.of(context);
 
     return Scaffold(
       appBar: AppBar(
