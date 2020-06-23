@@ -1,0 +1,79 @@
+{
+  "@@last_modified": "2020-06-11T20:31:48.466935",
+  "@@locale":"en_US",
+  "login": "login",
+  "@login": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "oauthLogin": "oauth login",
+  "@oauthLogin": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "openInBrowser": "open in browser",
+  "@openInBrowser": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "loginFailed": "登录失败",
+  "@loginFailed": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "networkError": "网络错误",
+  "@networkError": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "networkError401": "[401错误可能: 未授权 \\ 授权登录失败 \\ 登录过期]",
+  "@networkError401": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "networkError403": "403权限错误",
+  "@networkError403": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "networkError404": "404错误",
+  "@networkError404": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "networkError422": "请求实体异常，请确保 Github ClientId 、账号秘密等信息正确。",
+  "@networkError422": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "networkErrorTimeout": "请求超时",
+  "@networkErrorTimeout": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "networkErrorUnknown": "未知异常",
+  "@networkErrorUnknown": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "gitHubRefused": "Github Api 出现异常[Connection refused]，建议换个网络环境或者稍后再试",
+  "@gitHubRefused": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "my": "我的",
+  "@my": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "trend": "趋势",
+  "@trend": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "feeds": "动态",
+  "@feeds": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
