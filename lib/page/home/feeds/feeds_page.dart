@@ -10,7 +10,7 @@ class _FeedsPageState extends State<FeedsPage> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text("my"),
+        child: Text("feeds"),
       ),
     );
   }

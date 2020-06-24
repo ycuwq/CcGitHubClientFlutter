@@ -91,7 +91,6 @@ flutter:
   # see https://flutter.dev/custom-fonts/#from-packages
 
   assets:
-    - static/images/
     - static/files/
 flutter_intl:
   enabled: true
