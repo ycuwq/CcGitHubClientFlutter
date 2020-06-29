@@ -1,18 +1,24 @@
 import 'dart:async';
 
 import 'package:ccgithubclientflutter/generated/l10n.dart';
-import 'package:ccgithubclientflutter/page/home/home_page.dart';
+import 'package:ccgithubclientflutter/ui/page/home/home_page.dart';
 import 'package:ccgithubclientflutter/pl/model/result_data.dart';
-import 'package:ccgithubclientflutter/page/login/login_page.dart';
-import 'package:ccgithubclientflutter/page/welcome_page.dart';
+import 'package:ccgithubclientflutter/ui/page/login/login_page.dart';
+import 'package:ccgithubclientflutter/ui/page/welcome_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-
+import 'package:provider/provider.dart';
+import 'common/provider_model.dart';
 import 'common/event/index.dart';
 
 void main() {
-  runApp(MyApp());
+  runApp(MultiProvider(
+    providers: [
+      ChangeNotifierProvider(create: (_) => UserModel()),
+    ],
+    child: MyApp(),
+  ));
 }
 
 class MyApp extends StatefulWidget {
@@ -102,7 +108,7 @@ mixin HttpErrorListener on State<MyApp> {
     final location = S.of(_context);
     switch (code) {
       case ResultCode.GITHUB_API_REFUSED:
-        showToast(location.networkError);
+        showToast(location.gitHubRefused);
         break;
       case 401:
         showToast(location.networkError401);
@@ -119,10 +125,6 @@ mixin HttpErrorListener on State<MyApp> {
       case ResultCode.NETWORK_TIMEOUT:
       //超时
         showToast(location.networkError422);
-        break;
-      case ResultCode.GITHUB_API_REFUSED:
-      //Github API 异常
-        showToast(location.gitHubRefused);
         break;
       default:
         showToast(location.networkErrorUnknown +

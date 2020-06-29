@@ -182,6 +182,76 @@ class S {
       args: [],
     );
   }
+
+  /// `什么都没有`
+  String get nothing_now {
+    return Intl.message(
+      '什么都没有',
+      name: 'nothing_now',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `repos`
+  String get public_repos {
+    return Intl.message(
+      'repos',
+      name: 'public_repos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `followers`
+  String get followers {
+    return Intl.message(
+      'followers',
+      name: 'followers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `following`
+  String get following {
+    return Intl.message(
+      'following',
+      name: 'following',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `starred`
+  String get starred {
+    return Intl.message(
+      'starred',
+      name: 'starred',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `honor`
+  String get honor {
+    return Intl.message(
+      'honor',
+      name: 'honor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `个人动态`
+  String get user_dynamic_title {
+    return Intl.message(
+      '个人动态',
+      name: 'user_dynamic_title',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

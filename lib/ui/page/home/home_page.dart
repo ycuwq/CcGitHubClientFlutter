@@ -1,9 +1,11 @@
+import 'package:ccgithubclientflutter/common/provider_model.dart';
 import 'package:ccgithubclientflutter/generated/l10n.dart';
-import 'package:ccgithubclientflutter/page/home/feeds/feeds_page.dart';
-import 'package:ccgithubclientflutter/page/home/my/my_page.dart';
-import 'package:ccgithubclientflutter/page/home/treed/treed_page.dart';
+import 'package:ccgithubclientflutter/ui/page/home/feeds/feeds_page.dart';
+import 'package:ccgithubclientflutter/ui/page/home/my/my_page.dart';
+import 'package:ccgithubclientflutter/ui/page/home/treed/treed_page.dart';
 import 'package:ccgithubclientflutter/pl/repository/user_repository.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 class HomePage extends StatefulWidget {
   static const String ROUTE_NAME = "home";
@@ -24,25 +26,6 @@ class HomeState extends State<HomePage> {
     MyPage(),
   ];
   List<Widget> titleList;
-
-  List<Widget> getTitleList(S localizations) {
-
-    if (titleList == null) {
-      titleList = [
-        Text(localizations.feeds),
-        Text(localizations.trend),
-        Text(localizations.my)
-      ];
-    }
-
-    return titleList;
-  }
-
-  @override
-  void didChangeDependencies() {
-    super.didChangeDependencies();
-    UserRepository.getUserInfo();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -75,11 +58,34 @@ class HomeState extends State<HomePage> {
     );
   }
 
-  // bottomnaviagtionbar 和 pageview 的联动
+  List<Widget> getTitleList(S localizations) {
+    if (titleList == null) {
+      titleList = [
+        Text(localizations.feeds),
+        Text(localizations.trend),
+        Text(localizations.my)
+      ];
+    }
+
+    return titleList;
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _getUserInfo();
+  }
+
   void onTap(int index) {
     // 过pageview的pagecontroller的animateToPage方法可以跳转
     _pageController.animateToPage(index,
         duration: const Duration(milliseconds: 300), curve: Curves.ease);
+  }
+
+  // bottomnaviagtionbar 和 pageview 的联动
+  void _getUserInfo() async {
+    var user = await UserRepository.getUserInfo();
+    context.read<UserModel>().setUser(user);
   }
 
   void _pageChange(int index) {

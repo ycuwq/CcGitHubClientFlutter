@@ -24,6 +24,10 @@ class UserRepository {
     final res = await UserService.getMyUserInfo();
     if (res != null && res.result) {
       var data = User.fromJsonMap(res.data);
+      var starred = await UserService.getUserStar(data.login, null);
+      print("count starred: $starred");
+      data.starred = starred;
+      res.data['starred'] = starred;
       saveCurrentUser(res.data);
       return data;
     }

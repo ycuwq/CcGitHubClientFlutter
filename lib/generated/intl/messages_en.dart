@@ -22,7 +22,10 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "feeds" : MessageLookupByLibrary.simpleMessage("动态"),
+    "followers" : MessageLookupByLibrary.simpleMessage("followers"),
+    "following" : MessageLookupByLibrary.simpleMessage("following"),
     "gitHubRefused" : MessageLookupByLibrary.simpleMessage("Github Api 出现异常[Connection refused]，建议换个网络环境或者稍后再试"),
+    "honor" : MessageLookupByLibrary.simpleMessage("honor"),
     "login" : MessageLookupByLibrary.simpleMessage("login"),
     "loginFailed" : MessageLookupByLibrary.simpleMessage("登录失败"),
     "my" : MessageLookupByLibrary.simpleMessage("我的"),
@@ -33,8 +36,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "networkError422" : MessageLookupByLibrary.simpleMessage("请求实体异常，请确保 Github ClientId 、账号秘密等信息正确。"),
     "networkErrorTimeout" : MessageLookupByLibrary.simpleMessage("请求超时"),
     "networkErrorUnknown" : MessageLookupByLibrary.simpleMessage("未知异常"),
+    "nothing_now" : MessageLookupByLibrary.simpleMessage("什么都没有"),
     "oauthLogin" : MessageLookupByLibrary.simpleMessage("oauth login"),
     "openInBrowser" : MessageLookupByLibrary.simpleMessage("open in browser"),
-    "trend" : MessageLookupByLibrary.simpleMessage("趋势")
+    "public_repos" : MessageLookupByLibrary.simpleMessage("repos"),
+    "starred" : MessageLookupByLibrary.simpleMessage("starred"),
+    "trend" : MessageLookupByLibrary.simpleMessage("趋势"),
+    "user_dynamic_title" : MessageLookupByLibrary.simpleMessage("个人动态")
   };
 }

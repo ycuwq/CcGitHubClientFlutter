@@ -1,5 +1,5 @@
-import 'package:ccgithubclientflutter/page/home/home_page.dart';
-import 'package:ccgithubclientflutter/page/login/login_page.dart';
+import 'package:ccgithubclientflutter/ui/page/home/home_page.dart';
+import 'package:ccgithubclientflutter/ui/page/login/login_page.dart';
 import 'package:flutter/material.dart';
 
 class NavigatorUtils {

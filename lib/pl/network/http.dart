@@ -109,7 +109,7 @@ class Http {
     } on DioError catch (e) {
       return _resultError(e);
     }
-    return ResultData(response.data, true, ResultCode.SUCCESS);
+    return ResultData(response.data, true, ResultCode.SUCCESS, headers: response.headers);
   }
 
   /// restful post 操作
@@ -131,7 +131,7 @@ class Http {
     } on DioError catch (e) {
       return _resultError(e);
     }
-    return ResultData(response.data, true, ResultCode.SUCCESS);
+    return ResultData(response.data, true, ResultCode.SUCCESS, headers: response.headers);
   }
 
   /// restful put 操作
@@ -153,7 +153,7 @@ class Http {
     } on DioError catch (e) {
       return _resultError(e);
     }
-    return ResultData(response.data, true, ResultCode.SUCCESS);
+    return ResultData(response.data, true, ResultCode.SUCCESS, headers: response.headers);
   }
 
   /// restful patch 操作
@@ -175,7 +175,7 @@ class Http {
     } on DioError catch (e) {
       return _resultError(e);
     }
-    return ResultData(response.data, true, ResultCode.SUCCESS);
+    return ResultData(response.data, true, ResultCode.SUCCESS, headers: response.headers);
   }
 
   /// restful delete 操作
@@ -197,7 +197,7 @@ class Http {
     } on DioError catch (e) {
       return _resultError(e);
     }
-    return ResultData(response.data, true, ResultCode.SUCCESS);
+    return ResultData(response.data, true, ResultCode.SUCCESS, headers: response.headers);
   }
 
   /// restful post form 表单提交操作
@@ -217,7 +217,7 @@ class Http {
     } on DioError catch (e) {
       return _resultError(e);
     }
-    return ResultData(response.data, true, ResultCode.SUCCESS);
+    return ResultData(response.data, true, ResultCode.SUCCESS, headers: response.headers);
   }
 
   Future<ResultData> netFetch(url, params, Options options, CancelToken cancelToken) async {
@@ -230,7 +230,7 @@ class Http {
     } on DioError catch (e) {
       return _resultError(e);
     }
-    return ResultData(response.data, true, ResultCode.SUCCESS);
+    return ResultData(response.data, true, ResultCode.SUCCESS, headers: response.headers);
   }
 
   _resultError(DioError e) {

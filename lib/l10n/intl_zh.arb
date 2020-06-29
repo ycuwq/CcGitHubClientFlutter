@@ -15,5 +15,12 @@
   "gitHubRefused": "Github Api 出现异常[Connection refused]，建议换个网络环境或者稍后再试",
   "my": "我的",
   "trend": "趋势",
-  "feeds": "动态"
+  "feeds": "动态",
+  "nothing_now": "什么都没有",
+  "public_repos": "仓库",
+  "followers": "粉丝",
+  "following": "关注",
+  "starred": "星标",
+  "honor": "荣耀",
+  "user_dynamic_title": "个人动态"
 }

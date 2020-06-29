@@ -1,9 +1,10 @@
 import 'package:ccgithubclientflutter/common/navigate/nacigator_utils.dart';
+import 'package:ccgithubclientflutter/common/provider_model.dart';
 import 'package:ccgithubclientflutter/pl/model/user.dart';
 import 'package:ccgithubclientflutter/pl/repository/user_repository.dart';
 import 'package:flare_flutter/flare_actor.dart';
 import 'package:flutter/material.dart';
-
+import 'package:provider/provider.dart';
 class WelcomePage extends StatefulWidget {
   static const String ROUTE_NAME = "/";
   final String title = "welcome";
@@ -28,6 +29,7 @@ class WelcomeState extends State<WelcomePage> {
     if (user == null) {
       NavigatorUtils.goLogin(context);
     } else {
+      context.read<UserModel>().setUser(user);
       NavigatorUtils.goHome(context);
     }
   }
