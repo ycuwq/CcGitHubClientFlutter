@@ -34,5 +34,10 @@
   "theme_color": "Theme Color",
   "dark_mode": "Dark mode",
   "clean_settings_cache": "clean settings cache",
-  "login_out": "Login out"
+  "login_out": "Login out",
+  "right_now": "right now",
+  "seconds_ago": "{second} seconds ago",
+  "minute_ago": "{minute} minute ago",
+  "hours_ago": "{hours} hours ago",
+  "days_ago": "{days} days ago"
 }

@@ -19,21 +19,32 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static m0(days) => "${days} days ago";
+
+  static m1(hours) => "${hours} hours ago";
+
+  static m2(minute) => "${minute} minute ago";
+
+  static m3(second) => "${second} seconds ago";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "clean_settings_cache" : MessageLookupByLibrary.simpleMessage("clean settings cache"),
     "dark_mode" : MessageLookupByLibrary.simpleMessage("Dark mode"),
+    "days_ago" : m0,
     "feeds" : MessageLookupByLibrary.simpleMessage("feeds"),
     "followers" : MessageLookupByLibrary.simpleMessage("followers"),
     "following" : MessageLookupByLibrary.simpleMessage("following"),
     "gitHubRefused" : MessageLookupByLibrary.simpleMessage("Github Api 出现异常[Connection refused]，建议换个网络环境或者稍后再试"),
     "honor" : MessageLookupByLibrary.simpleMessage("honor"),
+    "hours_ago" : m1,
     "language" : MessageLookupByLibrary.simpleMessage("Language"),
     "language_en" : MessageLookupByLibrary.simpleMessage("English"),
     "language_zh" : MessageLookupByLibrary.simpleMessage("中文"),
     "login" : MessageLookupByLibrary.simpleMessage("login"),
     "loginFailed" : MessageLookupByLibrary.simpleMessage("login failed"),
     "login_out" : MessageLookupByLibrary.simpleMessage("Login out"),
+    "minute_ago" : m2,
     "my" : MessageLookupByLibrary.simpleMessage("my"),
     "networkError" : MessageLookupByLibrary.simpleMessage("network error"),
     "networkError401" : MessageLookupByLibrary.simpleMessage("[401错误可能: 未授权 \\ 授权登录失败 \\ 登录过期]"),
@@ -46,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "oauthLogin" : MessageLookupByLibrary.simpleMessage("oauth login"),
     "openInBrowser" : MessageLookupByLibrary.simpleMessage("open in browser"),
     "public_repos" : MessageLookupByLibrary.simpleMessage("repos"),
+    "right_now" : MessageLookupByLibrary.simpleMessage("right now"),
+    "seconds_ago" : m3,
     "settings" : MessageLookupByLibrary.simpleMessage("Settings"),
     "starred" : MessageLookupByLibrary.simpleMessage("starred"),
     "theme_color" : MessageLookupByLibrary.simpleMessage("Theme Color"),

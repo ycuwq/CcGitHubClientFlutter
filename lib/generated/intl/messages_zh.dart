@@ -19,21 +19,32 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'zh';
 
+  static m0(days) => "${days} 天前";
+
+  static m1(hours) => "${hours} 小时前前";
+
+  static m2(minute) => "${minute} 分钟前";
+
+  static m3(second) => "${second} 秒前";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "clean_settings_cache" : MessageLookupByLibrary.simpleMessage("清除设置缓存"),
     "dark_mode" : MessageLookupByLibrary.simpleMessage("黑暗模式"),
+    "days_ago" : m0,
     "feeds" : MessageLookupByLibrary.simpleMessage("动态"),
     "followers" : MessageLookupByLibrary.simpleMessage("粉丝"),
     "following" : MessageLookupByLibrary.simpleMessage("关注"),
     "gitHubRefused" : MessageLookupByLibrary.simpleMessage("Github Api 出现异常[Connection refused]，建议换个网络环境或者稍后再试"),
     "honor" : MessageLookupByLibrary.simpleMessage("荣耀"),
+    "hours_ago" : m1,
     "language" : MessageLookupByLibrary.simpleMessage("语言"),
     "language_en" : MessageLookupByLibrary.simpleMessage("English"),
     "language_zh" : MessageLookupByLibrary.simpleMessage("中文"),
     "login" : MessageLookupByLibrary.simpleMessage("登录"),
     "loginFailed" : MessageLookupByLibrary.simpleMessage("登录失败"),
     "login_out" : MessageLookupByLibrary.simpleMessage("重新登录"),
+    "minute_ago" : m2,
     "my" : MessageLookupByLibrary.simpleMessage("我的"),
     "networkError" : MessageLookupByLibrary.simpleMessage("网络错误"),
     "networkError401" : MessageLookupByLibrary.simpleMessage("[401错误可能: 未授权 \\ 授权登录失败 \\ 登录过期]"),
@@ -46,6 +57,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "oauthLogin" : MessageLookupByLibrary.simpleMessage("授权登录"),
     "openInBrowser" : MessageLookupByLibrary.simpleMessage("在浏览器打开"),
     "public_repos" : MessageLookupByLibrary.simpleMessage("仓库"),
+    "right_now" : MessageLookupByLibrary.simpleMessage("刚刚"),
+    "seconds_ago" : m3,
     "settings" : MessageLookupByLibrary.simpleMessage("设置"),
     "starred" : MessageLookupByLibrary.simpleMessage("星标"),
     "theme_color" : MessageLookupByLibrary.simpleMessage("主题颜色"),

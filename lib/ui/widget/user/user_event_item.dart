@@ -6,21 +6,22 @@ import 'package:ccgithubclientflutter/ui/widget/gsy_user_icon_widget.dart';
 import 'package:flutter/material.dart';
 
 class UserEventItem extends StatelessWidget {
-  EventViewModel eventViewModel;
+  final EventViewModel _eventViewModel;
 
-  UserEventItem(Event event) {
-    eventViewModel = EventViewModel.fromEventMap(event);
-  }
+  UserEventItem(Event event) :
+    _eventViewModel = EventViewModel.fromEventMap(event);
+
 
   @override
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
-    Widget des = (eventViewModel.actionDes == null ||
-            eventViewModel.actionDes.length == 0)
+    var appLocation = S.of(context);
+    Widget des = (_eventViewModel.actionDes == null ||
+            _eventViewModel.actionDes.length == 0)
         ? Container()
         : Container(
             child: new Text(
-              eventViewModel.actionDes,
+              _eventViewModel.actionDes,
               maxLines: 3,
             ),
             margin: EdgeInsets.only(top: 6.0, bottom: 2.0),
@@ -30,7 +31,7 @@ class UserEventItem extends StatelessWidget {
         padding: const EdgeInsets.only(top: 0.0, right: 5.0, left: 0.0),
         width: 30.0,
         height: 30.0,
-        image: eventViewModel.actionUserPic,
+        image: _eventViewModel.actionUserPic,
         onPressed: () {});
 
     return new Container(
@@ -49,13 +50,13 @@ class UserEventItem extends StatelessWidget {
                       children: <Widget>[
                         userImage,
                         new Expanded(
-                            child: new Text(eventViewModel.actionUser,
+                            child: new Text(_eventViewModel.actionUser,
                                 style: theme.textTheme.subtitle2)),
-                        new Text(eventViewModel.actionTime),
+                        new Text(StringUtils.getNewsTimeStr(appLocation, _eventViewModel.actionTime)),
                       ],
                     ),
                     new Container(
-                        child: new Text(eventViewModel.actionTarget,
+                        child: new Text(_eventViewModel.actionTarget,
                             style: theme.textTheme.subtitle2),
                         margin: new EdgeInsets.only(top: 6.0, bottom: 2.0),
                         alignment: Alignment.topLeft),
@@ -71,11 +72,11 @@ class EventViewModel {
   String actionUser;
   String actionUserPic;
   String actionDes;
-  String actionTime;
+  DateTime actionTime;
   String actionTarget;
 
   EventViewModel.fromEventMap(Event event) {
-    actionTime = StringUtils.getNewsTimeStr(event.createdAt);
+    actionTime = event.createdAt;
     actionUser = event.actor.login;
     actionUserPic = event.actor.avatar_url;
     var other = getActionAndDes(event);
