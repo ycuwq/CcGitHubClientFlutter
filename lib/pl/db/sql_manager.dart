@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'dart:io';
 
-import 'package:ccgithubclientflutter/pl/model/user.dart';
+import 'package:ccgithubclientflutter/pl/model/User.dart';
 import 'package:ccgithubclientflutter/pl/repository/user_repository.dart';
 import 'package:sqflite/sqflite.dart';
 

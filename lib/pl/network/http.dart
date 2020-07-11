@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:ccgithubclientflutter/pl/network/util/connectivity_request_retrier.dart';
 import 'package:ccgithubclientflutter/pl/model/result_data.dart';
-import 'package:ccgithubclientflutter/common/event/http_error_event.dart';
 import 'package:ccgithubclientflutter/common/event/index.dart';
 import 'package:ccgithubclientflutter/constants.dart';
 import 'package:connectivity/connectivity.dart';
@@ -238,7 +237,7 @@ class Http {
     String message = e?.message;
     if (e.response != null) {
       errorResponse = e.response;
-    } {
+    } else {
       if (message != null && message is String && (message.contains("Connection refused") || message.contains("Connection reset"))) {
         errorResponse = Response(statusCode: ResultCode.GITHUB_API_REFUSED);
       } else {

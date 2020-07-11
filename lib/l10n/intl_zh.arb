@@ -22,5 +22,17 @@
   "following": "关注",
   "starred": "星标",
   "honor": "荣耀",
-  "user_dynamic_title": "个人动态"
+  "user_dynamic_title": "个人动态",
+  "trending_day": "今日",
+  "trending_week": "本周",
+  "trending_month": "本月",
+  "trending_all": "全部",
+  "settings": "设置",
+  "language": "语言",
+  "language_zh": "中文",
+  "language_en": "English",
+  "theme_color": "主题颜色",
+  "dark_mode": "黑暗模式",
+  "clean_settings_cache": "清除设置缓存",
+  "login_out": "重新登录"
 }

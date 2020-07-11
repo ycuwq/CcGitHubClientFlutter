@@ -1,8 +1,9 @@
+import 'package:ccgithubclientflutter/common/navigate/nacigator_utils.dart';
 import 'package:ccgithubclientflutter/common/provider_model.dart';
 import 'package:ccgithubclientflutter/generated/l10n.dart';
 import 'package:ccgithubclientflutter/ui/page/home/feeds/feeds_page.dart';
 import 'package:ccgithubclientflutter/ui/page/home/my/my_page.dart';
-import 'package:ccgithubclientflutter/ui/page/home/treed/treed_page.dart';
+import 'package:ccgithubclientflutter/ui/page/home/trending/trending_page.dart';
 import 'package:ccgithubclientflutter/pl/repository/user_repository.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -22,17 +23,27 @@ class HomeState extends State<HomePage> {
 
   var pageList = [
     FeedsPage(),
-    TreedPage(),
+    TrendingPage(),
     MyPage(),
   ];
   List<Widget> titleList;
-
+  @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    final appLocalizations = S.of(context);
+    getTitleList(appLocalizations, refresh: true);
+  }
   @override
   Widget build(BuildContext context) {
     final appLocalizations = S.of(context);
     return Scaffold(
       appBar: new AppBar(
         title: getTitleList(appLocalizations)[_currentPageIndex],
+        actions: [
+          IconButton(icon: Icon(Icons.settings), onPressed: () {
+            NavigatorUtils.goSettings(context);
+          })
+        ],
       ),
       body: PageView.builder(
           onPageChanged: _pageChange,
@@ -58,8 +69,8 @@ class HomeState extends State<HomePage> {
     );
   }
 
-  List<Widget> getTitleList(S localizations) {
-    if (titleList == null) {
+  List<Widget> getTitleList(S localizations, {refresh = false}) {
+    if (titleList == null || refresh) {
       titleList = [
         Text(localizations.feeds),
         Text(localizations.trend),

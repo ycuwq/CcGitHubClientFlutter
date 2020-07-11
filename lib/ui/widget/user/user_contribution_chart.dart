@@ -1,7 +1,6 @@
 import 'package:ccgithubclientflutter/generated/l10n.dart';
-import 'package:ccgithubclientflutter/pl/model/user.dart';
+import 'package:ccgithubclientflutter/pl/model/User.dart';
 import 'package:ccgithubclientflutter/pl/service/address.dart';
-import 'package:ccgithubclientflutter/ui/widget/gsy_icon_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:flutter_svg/flutter_svg.dart';

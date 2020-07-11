@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:ccgithubclientflutter/pl/dao/local_storage.dart';
 import 'package:ccgithubclientflutter/pl/service/user_service.dart';
-import 'package:ccgithubclientflutter/pl/model/user.dart';
+import 'package:ccgithubclientflutter/pl/model/User.dart';
 import 'package:ccgithubclientflutter/constants.dart';
 
 class UserRepository {
@@ -23,11 +23,9 @@ class UserRepository {
   static Future<User> getUserInfo() async {
     final res = await UserService.getMyUserInfo();
     if (res != null && res.result) {
-      var data = User.fromJsonMap(res.data);
+      var data = User.fromJson(res.data);
       var starred = await UserService.getUserStar(data.login, null);
-      print("count starred: $starred");
       data.starred = starred;
-      res.data['starred'] = starred;
       saveCurrentUser(res.data);
       return data;
     }
@@ -39,7 +37,7 @@ class UserRepository {
     var userText = await LocalStorage.get(Constants.LOCAL_KEY_USER);
     if (userText != null) {
       var userMap = json.decode(userText);
-      User user = User.fromJsonMap(userMap);
+      User user = User.fromJson(userMap);
       return user;
     } else {
       return null;

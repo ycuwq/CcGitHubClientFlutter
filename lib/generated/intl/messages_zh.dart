@@ -21,13 +21,19 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
+    "clean_settings_cache" : MessageLookupByLibrary.simpleMessage("清除设置缓存"),
+    "dark_mode" : MessageLookupByLibrary.simpleMessage("黑暗模式"),
     "feeds" : MessageLookupByLibrary.simpleMessage("动态"),
     "followers" : MessageLookupByLibrary.simpleMessage("粉丝"),
     "following" : MessageLookupByLibrary.simpleMessage("关注"),
     "gitHubRefused" : MessageLookupByLibrary.simpleMessage("Github Api 出现异常[Connection refused]，建议换个网络环境或者稍后再试"),
     "honor" : MessageLookupByLibrary.simpleMessage("荣耀"),
+    "language" : MessageLookupByLibrary.simpleMessage("语言"),
+    "language_en" : MessageLookupByLibrary.simpleMessage("English"),
+    "language_zh" : MessageLookupByLibrary.simpleMessage("中文"),
     "login" : MessageLookupByLibrary.simpleMessage("登录"),
     "loginFailed" : MessageLookupByLibrary.simpleMessage("登录失败"),
+    "login_out" : MessageLookupByLibrary.simpleMessage("重新登录"),
     "my" : MessageLookupByLibrary.simpleMessage("我的"),
     "networkError" : MessageLookupByLibrary.simpleMessage("网络错误"),
     "networkError401" : MessageLookupByLibrary.simpleMessage("[401错误可能: 未授权 \\ 授权登录失败 \\ 登录过期]"),
@@ -40,8 +46,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "oauthLogin" : MessageLookupByLibrary.simpleMessage("授权登录"),
     "openInBrowser" : MessageLookupByLibrary.simpleMessage("在浏览器打开"),
     "public_repos" : MessageLookupByLibrary.simpleMessage("仓库"),
+    "settings" : MessageLookupByLibrary.simpleMessage("设置"),
     "starred" : MessageLookupByLibrary.simpleMessage("星标"),
+    "theme_color" : MessageLookupByLibrary.simpleMessage("主题颜色"),
     "trend" : MessageLookupByLibrary.simpleMessage("趋势"),
+    "trending_all" : MessageLookupByLibrary.simpleMessage("全部"),
+    "trending_day" : MessageLookupByLibrary.simpleMessage("今日"),
+    "trending_month" : MessageLookupByLibrary.simpleMessage("本月"),
+    "trending_week" : MessageLookupByLibrary.simpleMessage("本周"),
     "user_dynamic_title" : MessageLookupByLibrary.simpleMessage("个人动态")
   };
 }

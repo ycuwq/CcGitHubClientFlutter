@@ -1,8 +1,8 @@
-import 'package:ccgithubclientflutter/pl/model/user.dart';
+import 'package:ccgithubclientflutter/pl/model/User.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class UserModel with ChangeNotifier{
+class UserModel with ChangeNotifier {
   User _userInfo;
 
   void setUser(User userInfo) {

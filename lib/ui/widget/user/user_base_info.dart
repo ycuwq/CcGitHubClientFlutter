@@ -1,5 +1,5 @@
 import 'package:ccgithubclientflutter/generated/l10n.dart';
-import 'package:ccgithubclientflutter/pl/model/user.dart';
+import 'package:ccgithubclientflutter/pl/model/User.dart';
 import 'package:ccgithubclientflutter/ui/widget/gsy_icon_text.dart';
 import 'package:flutter/material.dart';
 

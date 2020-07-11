@@ -8,7 +8,7 @@ class RepoService {
     sort ??= 'pushed';
     String url;
     if (userName == null) {
-      url = "user//repos?sort=$sort&per_page=$perPage";
+      url = "user/repos?sort=$sort&per_page=$perPage";
     } else {
       url = "users/$userName/repos?sort=$sort&per_page=$perPage";
     }

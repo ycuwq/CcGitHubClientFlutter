@@ -1,26 +1,40 @@
 import 'dart:async';
 
+import 'package:ccgithubclientflutter/constants.dart';
 import 'package:ccgithubclientflutter/generated/l10n.dart';
+import 'package:ccgithubclientflutter/ui/model/theme_model.dart';
 import 'package:ccgithubclientflutter/ui/page/home/home_page.dart';
 import 'package:ccgithubclientflutter/pl/model/result_data.dart';
 import 'package:ccgithubclientflutter/ui/page/login/login_page.dart';
+import 'package:ccgithubclientflutter/ui/page/setting/settings_page.dart';
 import 'package:ccgithubclientflutter/ui/page/welcome_page.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_settings_screens/flutter_settings_screens.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:provider/provider.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'common/provider_model.dart';
 import 'common/event/index.dart';
+import 'common/style/app_style.dart';
 
-void main() {
+Future<void> main() async {
+  await initSettings();
   runApp(MultiProvider(
     providers: [
       ChangeNotifierProvider(create: (_) => UserModel()),
+      ChangeNotifierProvider(create: (_)=> ThemeModel())
     ],
     child: MyApp(),
   ));
-}
 
+}
+Future<void> initSettings() async {
+  await Settings.init(
+    cacheProvider: SharePreferenceCache(),
+  );
+}
 class MyApp extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
@@ -30,33 +44,23 @@ class MyApp extends StatefulWidget {
 
 class AppState extends State<MyApp> with SingleTickerProviderStateMixin,HttpErrorListener {
 
+  ThemeData defaultThemeData;
+
   @override
   Widget build(BuildContext context) {
+    final themeDate = context.watch<ThemeModel>().getThemeData();
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'github client',
       localizationsDelegates: [
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         S.delegate,
         GlobalCupertinoLocalizations.delegate,
+        RefreshLocalizations.delegate,
       ],
       supportedLocales: S.delegate.supportedLocales,
-      theme: ThemeData(
-        // This is the theme of your application.
-        //
-        // Try running your application with "flutter run". You'll see the
-        // application has a blue toolbar. Then, without quitting the app, try
-        // changing the primarySwatch below to Colors.green and then invoke
-        // "hot reload" (press "r" in the console where you ran "flutter run",
-        // or simply save your changes to "hot reload" in a Flutter IDE).
-        // Notice that the counter didn't reset back to zero; the application
-        // is not restarted.
-        primarySwatch: Colors.blue,
-        // This makes the visual density adapt to the platform that you run
-        // the app on. For desktop platforms, the controls will be smaller and
-        // closer together (more dense) than on mobile platforms.
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+      locale: Locale.fromSubtags(languageCode: Settings.getValue<String>(Constants.SETTINGS_KEY_LANGUAGE, 'zh')),
+      theme: themeDate,
       routes: {
         WelcomePage.ROUTE_NAME: (context) {
           _context = context;
@@ -69,11 +73,27 @@ class AppState extends State<MyApp> with SingleTickerProviderStateMixin,HttpErro
         LoginPage.ROUTE_NAME: (context) {
           _context = context;
           return LoginPage();
+        },
+        SettingsPage.ROUTE_NAME: (context) {
+          _context = context;
+          return SettingsPage();
         }
       },
     );
   }
 
+  ThemeData getThemeDate() {
+    if (defaultThemeData == null) {
+      String colorString = Settings.getValue(Constants.SETTINGS_KEY_COLOR, Colors.blue[500].value.toString());
+      bool isDark = Settings.getValue(Constants.SETTINGS_KEY_DARK_MODE, false);
+      defaultThemeData = ThemeData(
+          primaryColor: StyleUtils.colorStringToMaterialColor(colorString),
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          brightness: isDark ? Brightness.dark : Brightness.light
+      );
+    }
+    return defaultThemeData;
+  }
 }
 
 mixin HttpErrorListener on State<MyApp> {

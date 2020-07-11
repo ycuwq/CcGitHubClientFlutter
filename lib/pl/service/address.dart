@@ -1,4 +1,5 @@
 import 'package:ccgithubclientflutter/config/github_config.dart';
+import 'package:ccgithubclientflutter/constants.dart';
 
 class Address {
   static const String graphicHost = 'https://ghchart.rshah.org/';
@@ -13,5 +14,18 @@ class Address {
         color +
         "/" +
         userName;
+  }
+
+  ///处理分页参数
+  static getPageParams(tab, page, [pageSize = Constants.PAGE_SIZE]) {
+    if (page != null) {
+      if (pageSize != null) {
+        return "${tab}page=$page&per_page=$pageSize";
+      } else {
+        return "${tab}page=$page";
+      }
+    } else {
+      return "";
+    }
   }
 }

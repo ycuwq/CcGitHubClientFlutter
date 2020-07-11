@@ -63,20 +63,20 @@ class S {
     );
   }
 
-  /// `登录失败`
+  /// `login failed`
   String get loginFailed {
     return Intl.message(
-      '登录失败',
+      'login failed',
       name: 'loginFailed',
       desc: '',
       args: [],
     );
   }
 
-  /// `网络错误`
+  /// `network error`
   String get networkError {
     return Intl.message(
-      '网络错误',
+      'network error',
       name: 'networkError',
       desc: '',
       args: [],
@@ -123,20 +123,20 @@ class S {
     );
   }
 
-  /// `请求超时`
+  /// `network timeout`
   String get networkErrorTimeout {
     return Intl.message(
-      '请求超时',
+      'network timeout',
       name: 'networkErrorTimeout',
       desc: '',
       args: [],
     );
   }
 
-  /// `未知异常`
+  /// `network unknown error`
   String get networkErrorUnknown {
     return Intl.message(
-      '未知异常',
+      'network unknown error',
       name: 'networkErrorUnknown',
       desc: '',
       args: [],
@@ -153,40 +153,40 @@ class S {
     );
   }
 
-  /// `我的`
+  /// `my`
   String get my {
     return Intl.message(
-      '我的',
+      'my',
       name: 'my',
       desc: '',
       args: [],
     );
   }
 
-  /// `趋势`
+  /// `trend`
   String get trend {
     return Intl.message(
-      '趋势',
+      'trend',
       name: 'trend',
       desc: '',
       args: [],
     );
   }
 
-  /// `动态`
+  /// `feeds`
   String get feeds {
     return Intl.message(
-      '动态',
+      'feeds',
       name: 'feeds',
       desc: '',
       args: [],
     );
   }
 
-  /// `什么都没有`
+  /// `nothing`
   String get nothing_now {
     return Intl.message(
-      '什么都没有',
+      'nothing',
       name: 'nothing_now',
       desc: '',
       args: [],
@@ -243,11 +243,131 @@ class S {
     );
   }
 
-  /// `个人动态`
+  /// `user dynamic`
   String get user_dynamic_title {
     return Intl.message(
-      '个人动态',
+      'user dynamic',
       name: 'user_dynamic_title',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `daily`
+  String get trending_day {
+    return Intl.message(
+      'daily',
+      name: 'trending_day',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `weekly`
+  String get trending_week {
+    return Intl.message(
+      'weekly',
+      name: 'trending_week',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `monthly`
+  String get trending_month {
+    return Intl.message(
+      'monthly',
+      name: 'trending_month',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `all`
+  String get trending_all {
+    return Intl.message(
+      'all',
+      name: 'trending_all',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Settings`
+  String get settings {
+    return Intl.message(
+      'Settings',
+      name: 'settings',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Language`
+  String get language {
+    return Intl.message(
+      'Language',
+      name: 'language',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `中文`
+  String get language_zh {
+    return Intl.message(
+      '中文',
+      name: 'language_zh',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `English`
+  String get language_en {
+    return Intl.message(
+      'English',
+      name: 'language_en',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Theme Color`
+  String get theme_color {
+    return Intl.message(
+      'Theme Color',
+      name: 'theme_color',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Dark mode`
+  String get dark_mode {
+    return Intl.message(
+      'Dark mode',
+      name: 'dark_mode',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `clean settings cache`
+  String get clean_settings_cache {
+    return Intl.message(
+      'clean settings cache',
+      name: 'clean_settings_cache',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Login out`
+  String get login_out {
+    return Intl.message(
+      'Login out',
+      name: 'login_out',
       desc: '',
       args: [],
     );

@@ -1,4 +1,6 @@
+import 'package:ccgithubclientflutter/pl/model/Trending.dart';
 import 'package:ccgithubclientflutter/pl/service/repo_service.dart';
+import 'package:ccgithubclientflutter/pl/service/trending_service.dart';
 
 class RepoRepository {
   /// 获取用户的前100个仓库和star数量
@@ -13,6 +15,11 @@ class RepoRepository {
     }
     return RepoAndStarted(started, repos);
   }
+
+  static Future<List<Trending>> getTrendRepos(String language, String since) async {
+    return TrendingService.getTrending(language, since);
+  }
+
 }
 
 class RepoAndStarted {

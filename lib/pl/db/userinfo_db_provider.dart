@@ -1,7 +1,7 @@
 import 'dart:async';
 import 'package:ccgithubclientflutter/common/code_utils.dart';
 import 'package:ccgithubclientflutter/pl/db/sql_provider.dart';
-import 'package:ccgithubclientflutter/pl/model/user.dart';
+import 'package:ccgithubclientflutter/pl/model/User.dart';
 
 import 'package:flutter/foundation.dart';
 import 'package:sqflite/sqflite.dart';
@@ -81,7 +81,7 @@ class UserInfoDbProvider extends BaseDbProvider {
       ///使用 compute 的 Isolate 优化 json decode
       var mapData =
           await compute(CodeUtils.decodeMapResult, userProvider.data as String);
-      return User.fromJsonMap(mapData);
+      return User.fromJson(mapData);
     }
     return null;
   }
